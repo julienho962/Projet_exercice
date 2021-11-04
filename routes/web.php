@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\UtilisateursController;
+use App\Http\Controllers\ConnexionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/inscription', [InscriptionController::Class, 'formulaire']);
+Route::post('/inscription', [InscriptionController::Class, 'traitement']);
+
+Route::get('/utilisateurs', [UtilisateursController::Class, 'liste']);
+
+Route::get('/connexion', [ConnexionController::Class, 'formulaire']);
+Route::post('/connexion', [ConnexionController::Class, 'traitement']);
+Route::get('/mon-compte', function(){
+    return view('mon-compte');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
