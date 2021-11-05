@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ Route::get('/changepassword', [UserController::Class, 'formulaireChanger'])->nam
 Route::post('/changepassword', [UserController::Class, 'modifiermdp'])->name('modifiermdp');
 
 Route::get('{email}', [UserController::Class, 'voir'])->name('voir');
+Route::post('/messages', [MessageController::Class, 'nouveau'])->name('nouveau');

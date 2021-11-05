@@ -24,7 +24,8 @@ class UserController extends Controller
     }
     public function voir(Request $request){
         $user = User::where('email', $request->email)->first();
-        return view('user', compact('user'));
+        $messages = User::find($user->id)->messages;
+        return view('user', compact('user', 'messages'));
     }
      
     public function formulaireChanger(){
