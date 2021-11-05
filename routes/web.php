@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InscriptionController;
-use App\Http\Controllers\UtilisateursController;
-use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +20,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/users', [UserController::Class, 'liste'])->name('liste');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/changepassword', [UserController::Class, 'formulaireChanger'])->name('changer');
+Route::post('/changepassword', [UserController::Class, 'modifiermdp'])->name('modifiermdp');
+
+Route::get('{email}', [UserController::Class, 'voir'])->name('voir');
