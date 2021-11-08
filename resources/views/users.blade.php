@@ -13,19 +13,22 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($users as $items)
+            @foreach ($users as $user)
                 <tr>
-                    <th scope="row"> {{$items->id}} </th>
-                    <td> {{$items->name}} </td>
-                    <td>{{$items->email}}</td>
-                     @if (count($adresses)>0)
-                        <td> {{ $adresses[$items->id-1]['ville'] }} </td>
+                  
+                    <th scope="row"><a href=" {{route('voir', ['email' => $user->email])}} "> {{$user->id}} </a></th> 
+                    <td><a href=" {{route('voir', ['email' => $user->email])}} "> {{$user->name}} </a></td>
+                    <td><a href=" {{route('voir', ['email' => $user->email])}} ">{{$user->email}}</a></td>
+                     @if ($user->adresse)
+                        <td><a href=" {{route('voir', ['email' => $user->email])}} "> {{$user->adresse->ville}} </a></td>
                     @endif
+                  
                 </tr> 
             @endforeach
               
             </tbody>
           </table>
+          <a href=" {{route('home')}} ">Retourner à la page d'accueil?</a>
     </div>
 </div>
 @endsection

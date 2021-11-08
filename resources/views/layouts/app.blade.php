@@ -42,13 +42,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Se Connecter') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Créer un Compte') }}</a>
                                 </li>
                             @endif
                         @else
@@ -61,7 +61,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se déconnecter') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -78,6 +78,15 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <<footer class="page-footer font-small white">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2021 Copyright Laravel-Julienho
+              {{-- <a href="https://mdbootstrap.com/"> MDBootstrap.com</a> --}}
+            </div>
+            <!-- Copyright -->
+          
+          </footer>
     </div>
 </body>
 </html>
