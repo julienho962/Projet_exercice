@@ -42,4 +42,18 @@ class UserController extends Controller
         Session::flash('success', 'Votre mot de passe a été modifié avec succès.');
         return redirect('home');
     }
+
+    //modification des infos personnels
+    public function modifierInfos(){
+        request()->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+        ]);
+        auth()->user()->update([
+            'name' => request('name'),
+            'email' => request('email'),
+        ]);
+        Session::flash('success', 'Votre nom et email ont été modifié avec succes.');
+        return redirect('home');
+    }
 }

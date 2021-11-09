@@ -27,4 +27,8 @@ class MessageController extends Controller
         $messages = Message::latest()->limit(20)->get();
         return view('messages', compact('messages'));
     }
+
+    public function modifier(){
+        
+    }
 }

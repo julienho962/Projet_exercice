@@ -64,7 +64,9 @@
                             <br>
                         </div>
                     @else
-                        
+                        <div>
+                            Dites à {{$user->name}} de fournir une adresse.
+                        </div>
                     @endif
                 @endif
             </div>
