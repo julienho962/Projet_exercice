@@ -24,8 +24,7 @@ class MessageController extends Controller
     }
 
     public function listes(){
-        $messages = Message::all();
-        dd($messages);
+        $messages = Message::latest()->limit(20)->get();
         return view('messages', compact('messages'));
     }
 }

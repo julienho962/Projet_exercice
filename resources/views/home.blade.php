@@ -1,5 +1,27 @@
 @extends('layouts.app')
 
+@section('title')
+    Home
+@endsection
+
+@section('leftNavbar')
+    <li class="nav-item active">
+        <a class="nav-link" href=" {{route('home')}} ">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('liste')}} ">Utilisateurs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('voir', ['email' => auth()->user()->email])}} ">Mon Espace</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('discussions')}} ">Discussions</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('affiche')}} ">Modifier mot de passe</a>
+    </li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -19,12 +41,6 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @endif
-                    <div>
-                        <a href=" {{route('liste')}} ">Voir la liste des utilisateurs?</a>
-                    </div>
-                    <div>
-                        <a href=" {{route('voir', ['email' => auth()->user()->email])}} ">Allez à votre espace?</a>
-                    </div>
 
                     {{ __('Vous êtes connecté!') }}
                 </div>

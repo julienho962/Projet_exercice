@@ -29,7 +29,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/users', [UserController::class, 'liste'])->name('liste');
 Route::get('/modifierpassword', [UserController::class, 'afficheModifier'])->name('affiche');
 Route::post('/modifierpassword', [UserController::class, 'modifierPassword'])->name('modifier');
-Route::get('/{email}', [UserController::class, 'voir'])->name('voir');
+Route::get('/user/{email}', [UserController::class, 'voir'])->name('voir');
 
 Route::post('/message', [MessageController::class, 'nouveau'])->name('nouveau');
 Route::post('/adresse', [AdresseController::class, 'nouveau'])->name('nouvel');

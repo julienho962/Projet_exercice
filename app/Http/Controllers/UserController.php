@@ -25,8 +25,8 @@ class UserController extends Controller
     }
     public function voir(){
         $user = User::where('email', request('email'))->first();
-        $messages = $user->messages;
-        return view('user', compact('user'));
+        $messages = Message::where('user_id', $user->id)->latest()->limit(10)->get();
+        return view('user', compact('user','messages'));
     }
 
     //modification de mot de passe

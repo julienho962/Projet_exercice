@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> @yield('title') </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @yield('leftNavbar')
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -81,10 +81,10 @@
         <<footer class="page-footer font-small white">
 
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2021 Copyright Laravel-Julienho
+            <div class="footer-copyright text-center py-3">&copy;2021 Copyright Laravel-Julienho
               {{-- <a href="https://mdbootstrap.com/"> MDBootstrap.com</a> --}}
             </div>
-            <!-- Copyright -->
+            <!-- Copyright --> 
           
           </footer>
     </div>

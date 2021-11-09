@@ -1,5 +1,27 @@
 @extends('layouts.app')
 
+@section('title')
+    Users
+@endsection
+
+@section('leftNavbar')
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('home')}} ">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href=" {{route('liste')}} ">Utilisateurs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('voir', ['email' => auth()->user()->email])}} ">Mon Espace</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('discussions')}} ">Discussions</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href=" {{route('affiche')}} ">Modifier mot de passe</a>
+    </li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content">
@@ -28,7 +50,6 @@
               
             </tbody>
           </table>
-          <a href=" {{route('home')}} ">Retourner à la page d'accueil?</a>
     </div>
 </div>
 @endsection
